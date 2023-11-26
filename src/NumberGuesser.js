@@ -3,7 +3,10 @@ import './NumberGuesser.scss';
 function NumberGuesser() {
   return (
     <div className="number-guesser">
-      Hello World!
+      <section className="number-guesser__header">Number Guesser</section>
+      <section className="number-guesser__main">
+        main
+      </section>
     </div>
   );
 }

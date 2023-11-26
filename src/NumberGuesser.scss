@@ -1,3 +1,19 @@
 .number-guesser {
-  color: red;
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #333399;
+    font-size: 36px;
+    font-weight: 900;
+    padding: 20px 0;
+    background-color: #3399FF;
+    color: #FFFFFF;
+    letter-spacing: 3px;
+    font-family: Consolas, monaco, monospace;
+  }
+
+  &__main {
+    display: flex;
+  }
 }
