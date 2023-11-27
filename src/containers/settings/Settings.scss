@@ -1,0 +1,31 @@
+.settings {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #333399;
+    padding: 10px;
+
+    &__label {
+        color: #333399;
+        font-weight: 900;
+        text-decoration: underline;
+        font-size: 20px;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+
+    &__criteria {
+        display: flex;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        margin-right: 25px;
+    
+        &-label {
+            color: #3399FF;
+            font-weight: 900;
+            text-decoration: underline;
+        }
+      }
+  }
