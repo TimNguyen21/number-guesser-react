@@ -10,6 +10,22 @@ input {
   // temporary view
   margin: 15px;
 
+  &__label {
+    color: #3399FF;
+    font-weight: 900;
+    text-decoration: underline;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    margin-right: 25px;
+
+    &-label {
+      @extend .number-guesser__label;
+    }
+  }
+
   &__header {
     display: flex;
     justify-content: center;
@@ -29,17 +45,16 @@ input {
 
   &__settings {
     display: flex;
+    flex-direction: column;
     border-bottom: 2px solid #333399;
     padding: 10px;
 
-    &-section {
-      display: flex;
-      flex-direction: column;
-    }
-
     &-label {
+      @extend .number-guesser__label;
       color: #333399;
-      font-weight: 900;
+      font-size: 20px;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
     }
   }
 
