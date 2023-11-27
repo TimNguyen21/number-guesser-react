@@ -1,4 +1,10 @@
+input {
+  font-family: Consolas, monaco, monospace;
+}
+
 .number-guesser {
+  font-family: Consolas, monaco, monospace;
+  font-size: 18px;
   border: 1px solid #333399;
   height: 95vh;
   // temporary view
@@ -14,7 +20,6 @@
     background-color: #3399FF;
     color: #FFFFFF;
     letter-spacing: 3px;
-    font-family: Consolas, monaco, monospace;
   }
 
   &__main {
@@ -22,9 +27,20 @@
     justify-content: space-between;
   }
 
-  &__settings-section {
+  &__settings {
     display: flex;
     border-bottom: 2px solid #333399;
+    padding: 10px;
+
+    &-section {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-label {
+      color: #333399;
+      font-weight: 900;
+    }
   }
 
   &__game-section,
