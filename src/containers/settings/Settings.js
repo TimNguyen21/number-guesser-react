@@ -11,23 +11,23 @@ function Settings(props) {
                 <section className="settings__section">
                     <label className="settings__section-label">Players Name</label>
                     <CustomInput 
-                        name={'player-one'}
+                        name={'playerOne'}
                         label={'Player 1:'}
                         getValue={updateCurrentGameSettingsProperty}/>
                     <CustomInput 
-                        name={'player-two'}
+                        name={'playerTwo'}
                         label={'Player 2:'}
                         getValue={updateCurrentGameSettingsProperty}/>
                 </section>
                 <section className="settings__section">
                     <label className="settings__section-label">Minimum/Maximum Values</label>
                     <CustomInput 
-                        name={'min-value'}
+                        name={'minValue'}
                         label={'Minimum Value:'}
                         inputType={'number'}
                         getValue={updateCurrentGameSettingsProperty}/>
                     <CustomInput 
-                        name={'max-value'}
+                        name={'maxValue'}
                         label={'Maximum Value:'}
                         inputType={'number'}
                         getValue={updateCurrentGameSettingsProperty}/>
