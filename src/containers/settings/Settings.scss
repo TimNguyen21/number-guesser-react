@@ -27,5 +27,12 @@
             font-weight: 900;
             text-decoration: underline;
         }
-      }
+    }
+
+    &__buttons-confirmation {
+        display: flex;
+        justify-content: space-between;
+        width: 380px;
+        padding: 15px 0 5px;
+    }
   }

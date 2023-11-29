@@ -5,10 +5,10 @@ import './NumberGuesser.scss';
 function NumberGuesser() {
   const defaultGameSettings = {
     'playerOne': '',
-    'playeTwo': '',
-    'minValue': null,
-    'maxValue': null,
-    'winningValue': null,
+    'playerTwo': '',
+    'minValue': '',
+    'maxValue': '',
+    'winningValue': '',
     'settingsFormHasError': false,
     'gameIsSet': false
   };
@@ -25,12 +25,17 @@ function NumberGuesser() {
       <Settings updateCurrentGameSettingsProperty={(e) => {updateCurrentGameSettingsProperty(e.target.name, e.target.value)}}/>
       <section className="number-guesser__main">
         <section className="number-guesser__game-section">
-          game section 
+          game section
         </section>
         <section className="number-guesser__results-section">
           results section
         </section>
       </section>
+
+      <br></br>
+      <br></br>
+      <br></br>
+      {JSON.stringify(gameSettings)}
     </div>
   );
 }

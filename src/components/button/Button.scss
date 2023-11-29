@@ -1,0 +1,25 @@
+.button {
+    height: 35px;
+    width: fit-content;
+    padding: 2px 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid #333399;
+    border-radius: 4px;
+    color: white;
+    background-color: #3399FF;
+    box-shadow: 1px 1px 0 #333399;
+    cursor: pointer;
+
+    &:active {
+        position: relative;
+        top: 1px;
+        box-shadow: 0 0 0 #333399;
+    }
+}
+
+.button-alternative {
+    @extend .button;
+    background-color: white;
+    color: #333399;
+}
