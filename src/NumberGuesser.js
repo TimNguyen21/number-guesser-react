@@ -3,15 +3,27 @@ import Settings from './containers/settings/Settings';
 import './NumberGuesser.scss';
 
 function NumberGuesser() {
-  const defaultGameSettings = {'player-one': '', 'player-two': '', 'min-value': null, 'max-value': null};
+  const defaultGameSettings = {
+    'player-one': '',
+    'player-two': '',
+    'min-value': null,
+    'max-value': null,
+    'winning-value': null,
+    'gameIsSet': false
+  };
 
   const [gameSettings, setGameSettings] = useState(defaultGameSettings);
-  const [gameIsSet, setGameIsSet] = useState(false);
+
+  const updateCurrentGameSettingsProperty = (propertyName, value) => {
+    const updatedGameSettings = {...gameSettings, [propertyName]: value}
+
+    setGameSettings(updatedGameSettings);
+  }
 
   return (
     <div className="number-guesser">
       <section className="number-guesser__header">Number Guesser</section>
-      <Settings/>
+      <Settings updateCurrentGameSettingsProperty={(e) => {updateCurrentGameSettingsProperty(e.target.name, e.target.value)}}/>
       <section className="number-guesser__main">
         <section className="number-guesser__game-section">
           game section
