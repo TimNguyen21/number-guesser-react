@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Settings from './containers/settings/Settings';
+import Game from './containers/game/Game';
 import './NumberGuesser.scss';
 
 function NumberGuesser() {
@@ -28,7 +29,7 @@ function NumberGuesser() {
         clearSettings={()=>{setGameSettings(defaultGameSettings)}}/>
       <section className="number-guesser__main">
         <section className="number-guesser__game-section">
-          game section
+          <Game gameData={gameSettings}/>
         </section>
         <section className="number-guesser__results-section">
           results section
