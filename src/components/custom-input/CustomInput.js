@@ -1,7 +1,7 @@
 import './CustomInput.scss';
 
 function CustomInput(props) {
-    const { name, label, inputType = 'text', getValue } = props;
+    const { name, label, inputType = 'text', getValue, currentValue } = props;
 
     return (
         <div className="custom-input">
@@ -12,7 +12,8 @@ function CustomInput(props) {
                 className="custom-input__input" 
                 name={ name }
                 type={ inputType }
-                onChange={ getValue }/>
+                onChange={ getValue }
+                value={ currentValue }/>
         </div>
     );
 }

@@ -3,7 +3,7 @@ import Button from '../../components/button/Button';
 import './Settings.scss';
 
 function Settings(props) {
-    const { updateCurrentGameSettingsProperty } = props;
+    const { updateCurrentGameSettingsProperty, currentGameSettingsProperties, clearSettings } = props;
 
     return (
         <section className="settings">
@@ -14,11 +14,13 @@ function Settings(props) {
                     <CustomInput 
                         name={'playerOne'}
                         label={'Player 1:'}
-                        getValue={updateCurrentGameSettingsProperty}/>
+                        getValue={updateCurrentGameSettingsProperty}
+                        currentValue={currentGameSettingsProperties['playerOne']}/>
                     <CustomInput 
                         name={'playerTwo'}
                         label={'Player 2:'}
-                        getValue={updateCurrentGameSettingsProperty}/>
+                        getValue={updateCurrentGameSettingsProperty}
+                        currentValue={currentGameSettingsProperties['playerTwo']}/>
                 </section>
                 <section className="settings__section">
                     <label className="settings__section-label">Minimum/Maximum Values</label>
@@ -26,17 +28,24 @@ function Settings(props) {
                         name={'minValue'}
                         label={'Minimum Value:'}
                         inputType={'number'}
-                        getValue={updateCurrentGameSettingsProperty}/>
+                        getValue={updateCurrentGameSettingsProperty}
+                        currentValue={currentGameSettingsProperties['minValue']}/>
                     <CustomInput 
                         name={'maxValue'}
                         label={'Maximum Value:'}
                         inputType={'number'}
-                        getValue={updateCurrentGameSettingsProperty}/>
+                        getValue={updateCurrentGameSettingsProperty}
+                        currentValue={currentGameSettingsProperties['maxValue']}/>
                 </section>
             </section>
             <section className="settings__buttons-confirmation">
-                <Button label={'Start Game'} onClick={() => {console.log('start game')}}/>
-                <Button label={'Clear Settings'} inverseColor={true} onClick={() => {console.log('reset settings')}}/>
+                <Button 
+                    label={'Start Game'} 
+                    onClick={() => {console.log('start game')}}/>
+                <Button 
+                    label={'Clear Settings'} 
+                    isInverseColor={true} 
+                    onClick={clearSettings}/>
             </section>
         </section>
     );
