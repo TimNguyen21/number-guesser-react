@@ -6,16 +6,16 @@ import './Game.scss';
 function Game(props) {
     const { gameData } = props;
 
-    const defaultPlayersNumberGuess = {
+    const defaultPlayersNumberStatus = {
         'playerOneCurrentNumber': '', 
         'playerOnePreviousNumber':'', 
         'playerTwoCurrentNumber': '',
         'playerTwoPreviousNumber':''
     };
 
-    const [playersNumberGuess, setPlayersNumberGuess] = useState(defaultPlayersNumberGuess);
+    const [playersNumberGuess, setPlayersNumberGuess] = useState(defaultPlayersNumberStatus);
 
-    const setPlayerCurrentNumberGuess = (currentPlayer, currentValue) => {
+    const setPlayerCurrentNumberStatus = (currentPlayer, currentValue) => {
         setPlayersNumberGuess(previousGuess => ({...previousGuess, [currentPlayer]: currentValue}));
     }
 
@@ -27,14 +27,17 @@ function Game(props) {
                 <PlayerCard 
                     playerName={gameData['playerOne']}
                     playerPreviousGuess={playersNumberGuess['playerOnePreviousNumber']}
-                    getPlayerGuess={(e) => {setPlayerCurrentNumberGuess('playerOneCurrentNumber', e.target.value)}}/>
+                    getPlayerGuess={(e) => {setPlayerCurrentNumberStatus('playerOneCurrentNumber', e.target.value)}}/>
                 <PlayerCard
                     playerName={gameData['playerTwo']}
                     playerPreviousGuess={playersNumberGuess['playerTwoPreviousNumber']}
-                    getPlayerGuess={(e) => {setPlayerCurrentNumberGuess('playerTwoCurrentNumber', e.target.value)}}/>
+                    getPlayerGuess={(e) => {setPlayerCurrentNumberStatus('playerTwoCurrentNumber', e.target.value)}}/>
             </section>
-            <Button label={'Guess'} onClick={() => {console.log('guess')}}/>
-            {/* {JSON.stringify(playersNumberGuess)} */}
+            <Button label={'Guess'} onClick={() => {
+                    setPlayerCurrentNumberStatus('playerOnePreviousNumber', playersNumberGuess['playerOneCurrentNumber']);
+                    setPlayerCurrentNumberStatus('playerTwoPreviousNumber', playersNumberGuess['playerTwoCurrentNumber']);
+                }}/>
+            {JSON.stringify(playersNumberGuess)}
         </div>
     );
 }
