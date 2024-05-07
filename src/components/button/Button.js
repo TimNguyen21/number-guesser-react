@@ -1,14 +1,15 @@
 import './Button.scss';
 
 function Button(props) {
-    const { label, isInverseColor = false, onClick } = props;
+    const { label, isInverseColor = false, onClick, disableButton = false } = props;
 
     return (
         <div>
             <input
                 className={!isInverseColor ? 'button' : 'button-alternative'}
                 type='button' value={ label }
-                onClick={onClick}/>
+                onClick={onClick}
+                disabled={disableButton}/>
         </div>
     );
 }

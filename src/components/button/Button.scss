@@ -16,6 +16,13 @@
         top: 1px;
         box-shadow: 0 0 0 #333399;
     }
+
+    &:disabled {
+        background-color: lightgrey;
+        box-shadow: none;
+        top: 0;
+        cursor: not-allowed;
+    }
 }
 
 .button-alternative {
