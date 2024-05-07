@@ -28,8 +28,11 @@ function NumberGuesser() {
         currentGameSettingsProperties={gameSettings}
         clearSettings={()=>{setGameSettings(defaultGameSettings)}}/>
       <section className="number-guesser__main">
-        <section className="number-guesser__game-section">
-          <Game gameData={gameSettings}/>
+        <section className="number-guesser__game-section" 
+                //  hidden={!gameSettings['gameIsSet']}
+                 >
+          <Game gameData={gameSettings}
+                resetPlayerCardsToDefault={gameSettings['gameIsSet']}/>
         </section>
         <section className="number-guesser__results-section">
           results section
