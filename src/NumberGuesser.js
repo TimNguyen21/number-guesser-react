@@ -10,7 +10,7 @@ function NumberGuesser() {
     'minValue': '',
     'maxValue': '',
     'winningValue': null,
-    'settingsFormHasError': false,
+    // 'settingsFormHasError': false,
     'gameIsSet': false
   };
 
