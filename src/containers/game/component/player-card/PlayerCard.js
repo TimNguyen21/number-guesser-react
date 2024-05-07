@@ -1,7 +1,7 @@
 import './PlayerCard.scss';
 
 function PlayerCard(props) {
-    const { playerName, getPlayerGuess, playerPreviousGuess, playerGuessResult } = props;
+    const { playerName, getPlayerGuess, playerPreviousGuess, playerGuessResult, setValue = '' } = props;
 
     const playerGuessSummary = (playerGuessResult) => {
         if (playerGuessResult === 0) {
@@ -23,7 +23,10 @@ function PlayerCard(props) {
             </div>
             <section className="player-card__guess-input-section">
                 <label>Guess A Number</label>
-                <input className="player-card__guess-input" type='number' onChange={getPlayerGuess}/>
+                <input className="player-card__guess-input" 
+                       type='number' 
+                       onChange={getPlayerGuess}
+                       value={setValue}/>
             </section>
             <div className="player-card__guess-summary">
                 {playerGuessSummary(playerGuessResult)}
