@@ -9,7 +9,8 @@ function NumberGuesser() {
     'playerTwo': '',
     'minValue': '',
     'maxValue': '',
-    'winningValue': '',
+    // reset winning value to null when finish testing
+    'winningValue': 20,
     'settingsFormHasError': false,
     'gameIsSet': false
   };

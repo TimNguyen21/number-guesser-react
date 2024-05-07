@@ -1,12 +1,22 @@
 import './PlayerCard.scss';
 
 function PlayerCard(props) {
-    const { playerName, getPlayerGuess, playerPreviousGuess } = props;
+    const { playerName, getPlayerGuess, playerPreviousGuess, playerGuessResult } = props;
+
+    const playerGuessSummary = (playerGuessResult) => {
+        if (playerGuessResult === 0) {
+            return 'Winner!'
+        } else if (playerGuessResult === 1) {
+            return 'Too Low! Guess Again.'
+        } else if (playerGuessResult === 2) {
+            return 'Too High! Guess Again.'
+        }
+    }
 
     return (
         <div className='player-card'>
             <label className="player-card__name">
-                {playerName ? playerName : 'Player #1'}
+                {playerName}
             </label>
             <div className="player-card__guess-number">
                 {playerPreviousGuess ? playerPreviousGuess : '?'}
@@ -16,7 +26,7 @@ function PlayerCard(props) {
                 <input className="player-card__guess-input" type='number' onChange={getPlayerGuess}/>
             </section>
             <div className="player-card__guess-summary">
-                'guess summary'
+                {playerGuessSummary(playerGuessResult)}
             </div>
         </div>
     );
