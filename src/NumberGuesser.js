@@ -9,8 +9,7 @@ function NumberGuesser() {
     'playerTwo': '',
     'minValue': '',
     'maxValue': '',
-    // reset winning value to null when finish testing
-    'winningValue': 20,
+    'winningValue': null,
     'settingsFormHasError': false,
     'gameIsSet': false
   };
@@ -25,7 +24,7 @@ function NumberGuesser() {
     <div className="number-guesser">
       <section className="number-guesser__header">Number Guesser</section>
       <Settings 
-        updateCurrentGameSettingsProperty={(e) => {updateCurrentGameSettingsProperty(e.target.name, e.target.value)}}
+        updateCurrentGameSettingsProperty={updateCurrentGameSettingsProperty}
         currentGameSettingsProperties={gameSettings}
         clearSettings={()=>{setGameSettings(defaultGameSettings)}}/>
       <section className="number-guesser__main">

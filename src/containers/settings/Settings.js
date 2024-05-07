@@ -5,6 +5,11 @@ import './Settings.scss';
 function Settings(props) {
     const { updateCurrentGameSettingsProperty, currentGameSettingsProperties, clearSettings } = props;
 
+    const getWinningValue = () => {
+        return Math.round(Math.random() * (currentGameSettingsProperties['maxValue'] - currentGameSettingsProperties['minValue'])
+            + currentGameSettingsProperties['minValue']);
+    }
+
     return (
         <section className="settings">
             <label className="settings__label">Game Settings:</label>
@@ -14,12 +19,12 @@ function Settings(props) {
                     <CustomInput 
                         name={'playerOne'}
                         label={'Player 1:'}
-                        getValue={updateCurrentGameSettingsProperty}
+                        getValue={(e) => {updateCurrentGameSettingsProperty(e.target.name, e.target.value)}}
                         currentValue={currentGameSettingsProperties['playerOne']}/>
                     <CustomInput 
                         name={'playerTwo'}
                         label={'Player 2:'}
-                        getValue={updateCurrentGameSettingsProperty}
+                        getValue={(e) => {updateCurrentGameSettingsProperty(e.target.name, e.target.value)}}
                         currentValue={currentGameSettingsProperties['playerTwo']}/>
                 </section>
                 <section className="settings__section">
@@ -28,20 +33,25 @@ function Settings(props) {
                         name={'minValue'}
                         label={'Minimum Value:'}
                         inputType={'number'}
-                        getValue={updateCurrentGameSettingsProperty}
+                        getValue={(e) => {updateCurrentGameSettingsProperty(e.target.name, e.target.value)}}
                         currentValue={currentGameSettingsProperties['minValue']}/>
                     <CustomInput 
                         name={'maxValue'}
                         label={'Maximum Value:'}
                         inputType={'number'}
-                        getValue={updateCurrentGameSettingsProperty}
+                        getValue={(e) => {updateCurrentGameSettingsProperty(e.target.name, e.target.value)}}
                         currentValue={currentGameSettingsProperties['maxValue']}/>
                 </section>
             </section>
             <section className="settings__buttons-confirmation">
                 <Button 
                     label={'Start Game'} 
-                    onClick={() => {console.log('start game')}}/>
+                    onClick={
+                        () => {
+                            updateCurrentGameSettingsProperty('winningValue', getWinningValue());
+                            updateCurrentGameSettingsProperty('gameIsSet', true);
+                        }
+                    }/>
                 <Button 
                     label={'Clear Settings'} 
                     isInverseColor={true} 
