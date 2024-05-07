@@ -52,12 +52,14 @@ function Settings(props) {
                         name={'playerOne'}
                         label={'Player 1:'}
                         getValue={(e) => {updateCurrentGameSettingsProperty(e.target.name, e.target.value)}}
-                        currentValue={currentGameSettingsProperties['playerOne']}/>
+                        currentValue={currentGameSettingsProperties['playerOne']}
+                        disabledInput={currentGameSettingsProperties['gameIsSet']}/>
                     <CustomInput 
                         name={'playerTwo'}
                         label={'Player 2:'}
                         getValue={(e) => {updateCurrentGameSettingsProperty(e.target.name, e.target.value)}}
-                        currentValue={currentGameSettingsProperties['playerTwo']}/>
+                        currentValue={currentGameSettingsProperties['playerTwo']}
+                        disabledInput={currentGameSettingsProperties['gameIsSet']}/>
                 </section>
                 <section className="settings__section">
                     <label className="settings__section-label">Minimum/Maximum Values</label>
@@ -66,22 +68,25 @@ function Settings(props) {
                         label={'Minimum Value:'}
                         inputType={'number'}
                         getValue={(e) => {updateCurrentGameSettingsProperty(e.target.name, e.target.value)}}
-                        currentValue={currentGameSettingsProperties['minValue']}/>
+                        currentValue={currentGameSettingsProperties['minValue']}
+                        disabledInput={currentGameSettingsProperties['gameIsSet']}/>
                     <CustomInput 
                         name={'maxValue'}
                         label={'Maximum Value:'}
                         inputType={'number'}
                         getValue={(e) => {updateCurrentGameSettingsProperty(e.target.name, e.target.value)}}
-                        currentValue={currentGameSettingsProperties['maxValue']}/>
+                        currentValue={currentGameSettingsProperties['maxValue']}
+                        disabledInput={currentGameSettingsProperties['gameIsSet']}/>
                     <label className='settings__label-error'>{setErrorMessageType()}</label>
                 </section>
             </section>
             <section className="settings__buttons-confirmation">
                 <Button 
                     label={'Start Game'} 
-                    onClick={confirmGameSettings}/>
+                    onClick={confirmGameSettings}
+                    disableButton={currentGameSettingsProperties['gameIsSet']}/>
                 <Button 
-                    label={'Clear Settings'} 
+                    label={!currentGameSettingsProperties['gameIsSet'] ? 'Clear Settings' : 'Reset Game'} 
                     isInverseColor={true} 
                     onClick={clearSettings}/>
             </section>
