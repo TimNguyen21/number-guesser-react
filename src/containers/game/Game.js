@@ -4,7 +4,7 @@ import Button from '../../components/button/Button';
 import './Game.scss';
 
 function Game(props) {
-    const { gameSettingsData, playersNumberGuessData, updatePlayersNumberGuessData, resetPlayerCardsToDefault } = props;
+    const { gameSettingsData, playersNumberGuessData, updatePlayersNumberGuessData, resetPlayerCardsToDefault, confirmIsGameCompleted, isGameCompleted } = props;
 
     const [playerErrorCode, setPlayerErrorCode] = useState({'playerOne': null, 'playerTwo': null});
     const [hasGuessingError, setHasGuessingError] = useState(false);
@@ -77,6 +77,18 @@ function Game(props) {
         confirmGuessSubmission();
     }, [playerErrorCode]);
 
+    useEffect(() => {
+        const checkForWinningGuess = () => {
+            const winningValue = parseInt(gameSettingsData['winningValue']);
+            const playerOneValue = parseInt(playersNumberGuessData['playerOnePreviousNumber']);
+            const playerTwoValue = parseInt(playersNumberGuessData['playerTwoPreviousNumber']);
+    
+            confirmIsGameCompleted((playerOneValue === winningValue) || (playerTwoValue === winningValue));
+        }
+
+        checkForWinningGuess();
+    }, [playersNumberGuessData]);
+
     return (
         <div className="game">
             <label>Guess Number Range:</label>
@@ -101,7 +113,7 @@ function Game(props) {
             </section>
             <Button label={'Guess'} 
                     onClick={savePlayersRecentNumberGuess}
-                    disableButton={false}/>
+                    disableButton={isGameCompleted}/>
             {JSON.stringify(playersNumberGuessData)}
             {JSON.stringify(playerErrorCode)}
             {JSON.stringify(hasGuessingError)}

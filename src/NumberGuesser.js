@@ -10,7 +10,6 @@ function NumberGuesser() {
     'minValue': '',
     'maxValue': '',
     'winningValue': null,
-    // 'gameCompleted': false,
     // 'settingsFormHasError': false,
     'gameIsSet': false
   };
@@ -24,6 +23,7 @@ function NumberGuesser() {
 
   const [gameSettings, setGameSettings] = useState(defaultGameSettings);
   const [playersNumberGuessData, updatePlayersNumberGuess] = useState(defaultPlayersNumberGuessData);
+  const [isGameCompleted, confirmIsGameCompleted] = useState(false);
   // const [savedGameResults, setSavedGameResults] = useState([]);
 
   const updateCurrentGameSettingsProperty = (propertyName, value) => {
@@ -53,7 +53,9 @@ function NumberGuesser() {
           <Game gameSettingsData={gameSettings}
                 playersNumberGuessData={playersNumberGuessData}
                 updatePlayersNumberGuessData={updatePlayersNumberGuessData}
-                resetPlayerCardsToDefault={gameSettings['gameIsSet']}/>
+                resetPlayerCardsToDefault={gameSettings['gameIsSet']}
+                confirmIsGameCompleted={confirmIsGameCompleted}
+                isGameCompleted={isGameCompleted}/>
         </section>
         <section className="number-guesser__results-section">
           results section
@@ -64,6 +66,7 @@ function NumberGuesser() {
       <br></br>
       <br></br>
       {JSON.stringify(gameSettings)}
+      {JSON.stringify(isGameCompleted)}
     </div>
   );
 }
