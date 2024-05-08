@@ -1,15 +1,31 @@
 import './PlayerCard.scss';
 
 function PlayerCard(props) {
-    const { playerName, getPlayerGuess, playerPreviousGuess, playerNumberGuessResultCode, setValue = '' } = props;
+    const { playerName, getPlayerGuess, playerPreviousGuess, playerNumberGuessResultCode, setValue = '', errorCode = null } = props;
 
     const playerGuessSummary = (playerNumberGuessResultCode) => {
-        if (playerNumberGuessResultCode === 0) {
-            return 'Winner!'
-        } else if (playerNumberGuessResultCode === 1) {
-            return 'Too Low! Guess Again.'
-        } else if (playerNumberGuessResultCode === 2) {
-            return 'Too High! Guess Again.'
+        switch (playerNumberGuessResultCode) {
+            case 1:
+                return 'Winner!';
+            case 2:
+                return 'Too Low! Guess Again.';
+            case 3:
+                return 'Too High! Guess Again.';
+            default:
+                return '';
+        }
+    }
+
+    const errorMessage = (errorCode) => {
+        switch (errorCode) {
+            case 1:
+                return 'input empty';
+            case 2:
+                return 'grater than max';
+            case 3:
+                return 'lower than min';
+            default:
+                return '';
         }
     }
 
@@ -31,6 +47,7 @@ function PlayerCard(props) {
             <div className="player-card__guess-summary">
                 {playerGuessSummary(playerNumberGuessResultCode)}
             </div>
+            {errorCode ? errorMessage(errorCode) : ''}
         </div>
     );
 }
