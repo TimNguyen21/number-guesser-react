@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { generateRandomNumber } from '../../common_methods/Calculations';
 import CustomInput from '../../components/custom-input/CustomInput';
 import Button from '../../components/button/Button';
 import './Settings.scss';
@@ -18,14 +19,6 @@ function Settings(props) {
         }
     }
 
-    const getWinningValue = () => {
-        const minValue = Math.ceil(currentGameSettingsProperties['minValue']);
-        const maxValue = Math.floor(currentGameSettingsProperties['maxValue']);
-        const winningValue = Math.round(Math.random() * (maxValue - minValue + 1) + minValue);
-
-        return winningValue;
-    }
-
     const confirmGameSettings = () => {
         const currentMinValue = parseInt(currentGameSettingsProperties['minValue']);
         const currentMaxValue = parseInt(currentGameSettingsProperties['maxValue']);
@@ -37,7 +30,7 @@ function Settings(props) {
         } else {
             setErrorType(null);
 
-            updateCurrentGameSettingsProperty('winningValue', getWinningValue());
+            updateCurrentGameSettingsProperty('winningValue', generateRandomNumber(currentMinValue, currentMaxValue));
             updateCurrentGameSettingsProperty('gameIsSet', true);
         }
     }

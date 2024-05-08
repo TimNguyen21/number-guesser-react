@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { generateRandomNumber } from './common_methods/Calculations';
 import Settings from './containers/settings/Settings';
 import Game from './containers/game/Game';
 import './NumberGuesser.scss';
@@ -35,21 +36,16 @@ function NumberGuesser() {
   }
 
   const restartNewGame = () => {
-    updateCurrentGameSettingsProperty('winningValue', getWinningValue());
+    const minValue = gameSettings['minValue'];
+    const maxValue = gameSettings['maxValue'];
+
+    updateCurrentGameSettingsProperty('winningValue', generateRandomNumber(minValue, maxValue));
     updatePlayersNumberGuess(defaultPlayersNumberGuessData);
   }
 
   const clearGameToDefault = () => {
     setGameSettings(defaultGameSettings); 
     updatePlayersNumberGuess(defaultPlayersNumberGuessData);
-  }
-
-  const getWinningValue = () => {
-    const minValue = Math.ceil(gameSettings['minValue']);
-    const maxValue = Math.floor(gameSettings['maxValue']);
-    const winningValue = Math.round(Math.random() * (maxValue - minValue + 1) + minValue);
-
-    return winningValue;
   }
 
   return (
