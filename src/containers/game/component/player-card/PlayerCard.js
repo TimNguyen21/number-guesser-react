@@ -1,14 +1,14 @@
 import './PlayerCard.scss';
 
 function PlayerCard(props) {
-    const { playerName, getPlayerGuess, playerPreviousGuess, playerGuessResult, setValue = '' } = props;
+    const { playerName, getPlayerGuess, playerPreviousGuess, playerNumberGuessResultCode, setValue = '' } = props;
 
-    const playerGuessSummary = (playerGuessResult) => {
-        if (playerGuessResult === 0) {
+    const playerGuessSummary = (playerNumberGuessResultCode) => {
+        if (playerNumberGuessResultCode === 0) {
             return 'Winner!'
-        } else if (playerGuessResult === 1) {
+        } else if (playerNumberGuessResultCode === 1) {
             return 'Too Low! Guess Again.'
-        } else if (playerGuessResult === 2) {
+        } else if (playerNumberGuessResultCode === 2) {
             return 'Too High! Guess Again.'
         }
     }
@@ -29,7 +29,7 @@ function PlayerCard(props) {
                        value={setValue}/>
             </section>
             <div className="player-card__guess-summary">
-                {playerGuessSummary(playerGuessResult)}
+                {playerGuessSummary(playerNumberGuessResultCode)}
             </div>
         </div>
     );
