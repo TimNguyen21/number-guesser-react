@@ -86,7 +86,7 @@ function Settings(props) {
                     onClick={confirmGameSettings}
                     disableButton={currentGameSettingsProperties['gameIsSet']}/>
                 <Button 
-                    label={!currentGameSettingsProperties['gameIsSet'] ? 'Clear Settings' : 'Reset Game'} 
+                    label={!currentGameSettingsProperties['gameIsSet'] ? 'Clear Settings' : 'New Game'} 
                     isInverseColor={true} 
                     onClick={clearSettings}/>
             </section>
