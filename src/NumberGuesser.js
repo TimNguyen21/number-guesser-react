@@ -34,9 +34,22 @@ function NumberGuesser() {
     updatePlayersNumberGuess(previousGuess => ({...previousGuess, [currentPlayerValueType]: currentValue}));
   }
 
+  const restartNewGame = () => {
+    updateCurrentGameSettingsProperty('winningValue', getWinningValue());
+    updatePlayersNumberGuess(defaultPlayersNumberGuessData);
+  }
+
   const clearGameToDefault = () => {
     setGameSettings(defaultGameSettings); 
     updatePlayersNumberGuess(defaultPlayersNumberGuessData);
+  }
+
+  const getWinningValue = () => {
+    const minValue = Math.ceil(gameSettings['minValue']);
+    const maxValue = Math.floor(gameSettings['maxValue']);
+    const winningValue = Math.round(Math.random() * (maxValue - minValue + 1) + minValue);
+
+    return winningValue;
   }
 
   return (
@@ -54,6 +67,7 @@ function NumberGuesser() {
                 playersNumberGuessData={playersNumberGuessData}
                 updatePlayersNumberGuessData={updatePlayersNumberGuessData}
                 resetPlayerCardsToDefault={gameSettings['gameIsSet']}
+                restartNewGame={()=>{restartNewGame()}}
                 confirmIsGameCompleted={confirmIsGameCompleted}
                 isGameCompleted={isGameCompleted}/>
         </section>

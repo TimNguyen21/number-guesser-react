@@ -4,7 +4,7 @@ import Button from '../../components/button/Button';
 import './Game.scss';
 
 function Game(props) {
-    const { gameSettingsData, playersNumberGuessData, updatePlayersNumberGuessData, resetPlayerCardsToDefault, confirmIsGameCompleted, isGameCompleted } = props;
+    const { gameSettingsData, playersNumberGuessData, updatePlayersNumberGuessData, resetPlayerCardsToDefault, restartNewGame, confirmIsGameCompleted, isGameCompleted } = props;
 
     const [playerErrorCode, setPlayerErrorCode] = useState({'playerOne': null, 'playerTwo': null});
     const [hasGuessingError, setHasGuessingError] = useState(false);
@@ -87,7 +87,7 @@ function Game(props) {
         }
 
         checkForWinningGuess();
-    }, [playersNumberGuessData]);
+    }, [playersNumberGuessData, gameSettingsData, confirmIsGameCompleted]);
 
     return (
         <div className="game">
@@ -114,6 +114,10 @@ function Game(props) {
             <Button label={'Guess'} 
                     onClick={savePlayersRecentNumberGuess}
                     disableButton={isGameCompleted}/>
+            <br></br>
+            <Button label={'Restart Game with New Guess Number'} 
+                    onClick={restartNewGame}
+                    isHidden={!isGameCompleted}/>
             {JSON.stringify(playersNumberGuessData)}
             {JSON.stringify(playerErrorCode)}
             {JSON.stringify(hasGuessingError)}
