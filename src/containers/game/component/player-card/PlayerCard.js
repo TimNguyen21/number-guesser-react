@@ -1,7 +1,12 @@
 import './PlayerCard.scss';
 
 function PlayerCard(props) {
-    const { playerName, getPlayerGuess, playerPreviousGuess, playerNumberGuessResultCode, setValue = '', errorCode = null } = props;
+    const { playerName, 
+            getPlayerGuess, 
+            playerPreviousGuess, 
+            playerNumberGuessResultCode, 
+            setValue = '', 
+            errorCode = null } = props;
 
     const playerGuessSummary = (playerNumberGuessResultCode) => {
         switch (playerNumberGuessResultCode) {

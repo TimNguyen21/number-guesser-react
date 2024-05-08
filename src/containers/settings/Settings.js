@@ -5,7 +5,9 @@ import Button from '../../components/button/Button';
 import './Settings.scss';
 
 function Settings(props) {
-    const { updateCurrentGameSettingsProperty, currentGameSettingsProperties, clearSettings } = props;
+    const { updateCurrentGameSettingsProperty, 
+            currentGameSettingsProperties, 
+            clearSettings } = props;
 
     const [errorType, setErrorType] = useState(null);
 

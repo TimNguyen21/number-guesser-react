@@ -1,7 +1,11 @@
 import './Button.scss';
 
 function Button(props) {
-    const { label, isInverseColor = false, onClick, disableButton = false, isHidden = false } = props;
+    const { label, 
+            isInverseColor = false, 
+            onClick, 
+            disableButton = false, 
+            isHidden = false } = props;
 
     return (
         <div>

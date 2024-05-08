@@ -4,7 +4,14 @@ import Button from '../../components/button/Button';
 import './Game.scss';
 
 function Game(props) {
-    const { gameSettingsData, playersNumberGuessData, updatePlayersNumberGuessData, resetPlayerCardsToDefault, restartNewGame, confirmIsGameCompleted, isGameCompleted } = props;
+    const { gameSettingsData, 
+            playersNumberGuessData, 
+            updatePlayersNumberGuessData, 
+            resetPlayerCardsToDefault, 
+            restartNewGame, 
+            confirmIsGameCompleted, 
+            isGameCompleted, 
+            currentGameCount } = props;
 
     const [playerErrorCode, setPlayerErrorCode] = useState({'playerOne': null, 'playerTwo': null});
     const [hasGuessingError, setHasGuessingError] = useState(false);

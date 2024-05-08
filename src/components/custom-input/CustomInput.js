@@ -1,7 +1,12 @@
 import './CustomInput.scss';
 
 function CustomInput(props) {
-    const { name, label, inputType = 'text', getValue, currentValue, disabledInput = false } = props;
+    const { name, 
+            label, 
+            inputType = 'text', 
+            getValue, 
+            currentValue, 
+            disabledInput = false } = props;
 
     return (
         <div className="custom-input">
