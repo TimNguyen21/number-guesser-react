@@ -12,10 +12,10 @@ function Game(props) {
     const savePlayersRecentNumberGuess = () => {
         checkForGuessingErrors();
 
-        // if (!hasGuessingError) {
+        if (!hasGuessingError) {
             updatePlayersNumberGuessData('playerOnePreviousNumber', playersNumberGuessData['playerOneCurrentNumber']);
             updatePlayersNumberGuessData('playerTwoPreviousNumber', playersNumberGuessData['playerTwoCurrentNumber']);
-        // }
+        }
     }
 
     const getPlayerNumberGuessResultCode = (playerGuessValue) => {
@@ -63,18 +63,19 @@ function Game(props) {
             }
         });
     }
-    
-    // const confirmGuessSubmission = () => {
-    //     if (!playerErrorCode['playerOne'] && !playerErrorCode['playerTwo']) {
-    //         setHasGuessingError(false);
-    //     } else {
-    //         setHasGuessingError(true);
-    //     }
-    // }
 
-    // useEffect(() => {
-    //     confirmGuessSubmission();
-    // }, []);
+    useEffect(() => {
+        const confirmGuessSubmission = () => {
+        
+            if (!playerErrorCode['playerOne'] && !playerErrorCode['playerTwo']) {
+                setHasGuessingError(false);
+            } else {
+                setHasGuessingError(true);
+            }
+        }
+    
+        confirmGuessSubmission();
+    }, [playerErrorCode]);
 
     return (
         <div className="game">
