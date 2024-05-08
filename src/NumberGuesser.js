@@ -14,10 +14,28 @@ function NumberGuesser() {
     'gameIsSet': false
   };
 
+  const defaultPlayersNumberGuessData = {
+    'playerOneCurrentNumber': '',
+    'playerOnePreviousNumber': '',
+    'playerTwoCurrentNumber': '',
+    'playerTwoPreviousNumber':''
+  };
+
   const [gameSettings, setGameSettings] = useState(defaultGameSettings);
+  const [playersNumberGuessData, updatePlayersNumberGuess] = useState(defaultPlayersNumberGuessData);
+  // const [savedGameResults, setSavedGameResults] = useState([]);
 
   const updateCurrentGameSettingsProperty = (propertyName, value) => {
     setGameSettings(prevSettings => ({ ...prevSettings, [propertyName]: value }));
+  }
+
+  const updatePlayersNumberGuessData = (currentPlayerValueType, currentValue) => {
+    updatePlayersNumberGuess(previousGuess => ({...previousGuess, [currentPlayerValueType]: currentValue}));
+  }
+
+  const clearGameToDefault = () => {
+    setGameSettings(defaultGameSettings); 
+    updatePlayersNumberGuess(defaultPlayersNumberGuessData);
   }
 
   return (
@@ -26,12 +44,14 @@ function NumberGuesser() {
       <Settings 
         updateCurrentGameSettingsProperty={updateCurrentGameSettingsProperty}
         currentGameSettingsProperties={gameSettings}
-        clearSettings={()=>{setGameSettings(defaultGameSettings)}}/>
+        clearSettings={()=>{clearGameToDefault()}}/>
       <section className="number-guesser__main">
         <section className="number-guesser__game-section" 
                 //  hidden={!gameSettings['gameIsSet']}
                  >
-          <Game gameData={gameSettings}
+          <Game gameSettingsData={gameSettings}
+                playersNumberGuessData={playersNumberGuessData}
+                updatePlayersNumberGuessData={updatePlayersNumberGuessData}
                 resetPlayerCardsToDefault={gameSettings['gameIsSet']}/>
         </section>
         <section className="number-guesser__results-section">

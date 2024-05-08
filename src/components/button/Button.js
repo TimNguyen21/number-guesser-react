@@ -7,7 +7,7 @@ function Button(props) {
         <div>
             <input
                 className={!isInverseColor ? 'button' : 'button-alternative'}
-                type='button' value={ label }
+                type='button' value={label}
                 onClick={onClick}
                 disabled={disableButton}/>
         </div>
