@@ -11,7 +11,6 @@ function NumberGuesser() {
     'minValue': '',
     'maxValue': '',
     'winningValue': null,
-    // 'settingsFormHasError': false,
     'gameIsSet': false
   };
 
@@ -26,7 +25,7 @@ function NumberGuesser() {
   const [playersNumberGuessData, updatePlayersNumberGuess] = useState(defaultPlayersNumberGuessData);
   const [currentGameCount, setCurrentGameCount] = useState(0);
   const [isGameCompleted, confirmIsGameCompleted] = useState(false);
-  // const [savedGameResults, setSavedGameResults] = useState([]);
+  const [savedGameResults, setSavedGameResults] = useState([]);
 
   const updateCurrentGameSettingsProperty = (propertyName, value) => {
     setGameSettings(prevSettings => ({ ...prevSettings, [propertyName]: value }));
@@ -49,6 +48,15 @@ function NumberGuesser() {
     updatePlayersNumberGuess(defaultPlayersNumberGuessData);
   }
 
+  const registerCompletedGameResults = (winningPlayer, losingPlayer) => {
+    const gameSummaryData = { 
+      'winner': (gameSettings[winningPlayer] ? gameSettings[winningPlayer] : winningPlayer), 
+      'loser': (gameSettings[losingPlayer] ? gameSettings[losingPlayer] : losingPlayer) 
+    };
+
+    setSavedGameResults(prevGameResults => [...prevGameResults, gameSummaryData]);
+  }
+
   return (
     <div className="number-guesser">
       <section className="number-guesser__header">Number Guesser</section>
@@ -67,10 +75,11 @@ function NumberGuesser() {
                 restartNewGame={()=>{restartNewGame()}}
                 confirmIsGameCompleted={confirmIsGameCompleted}
                 isGameCompleted={isGameCompleted}
-                currentGameCount={setCurrentGameCount}/>
+                currentGameCount={setCurrentGameCount}
+                getCompletedGameResults={registerCompletedGameResults}/>
         </section>
         <section className="number-guesser__results-section">
-          results section
+          {JSON.stringify(savedGameResults)}
         </section>
       </section>
 

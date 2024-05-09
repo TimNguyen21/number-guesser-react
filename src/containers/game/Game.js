@@ -11,7 +11,8 @@ function Game(props) {
             restartNewGame, 
             confirmIsGameCompleted, 
             isGameCompleted, 
-            currentGameCount } = props;
+            currentGameCount,
+            getCompletedGameResults } = props;
 
     const [playerErrorCode, setPlayerErrorCode] = useState({'playerOne': null, 'playerTwo': null});
     const [hasGuessingError, setHasGuessingError] = useState(false);
@@ -85,16 +86,33 @@ function Game(props) {
     }, [playerErrorCode]);
 
     useEffect(() => {
+        const winningValue = parseInt(gameSettingsData['winningValue']);
+        const playerOneValue = parseInt(playersNumberGuessData['playerOnePreviousNumber']);
+        const playerTwoValue = parseInt(playersNumberGuessData['playerTwoPreviousNumber']);
+        const playerGuessCorrect = (playerOneValue === winningValue) || (playerTwoValue === winningValue);
+
         const checkForWinningGuess = () => {
-            const winningValue = parseInt(gameSettingsData['winningValue']);
-            const playerOneValue = parseInt(playersNumberGuessData['playerOnePreviousNumber']);
-            const playerTwoValue = parseInt(playersNumberGuessData['playerTwoPreviousNumber']);
-    
-            confirmIsGameCompleted((playerOneValue === winningValue) || (playerTwoValue === winningValue));
+            confirmIsGameCompleted(playerGuessCorrect);
         }
 
         checkForWinningGuess();
     }, [playersNumberGuessData, gameSettingsData, confirmIsGameCompleted]);
+
+    useEffect(() => {
+        const winningValue = parseInt(gameSettingsData['winningValue']);
+        const playerOneValue = parseInt(playersNumberGuessData['playerOnePreviousNumber']);
+        const playerTwoValue = parseInt(playersNumberGuessData['playerTwoPreviousNumber']);
+
+        const saveCompletedGameResults = () => {
+            if (playerOneValue === winningValue) {
+                getCompletedGameResults('playerOne', 'playerTwo');
+            } else if (playerTwoValue === winningValue) {
+                getCompletedGameResults('playerTwo', 'playerOne');
+            }
+        }
+
+        saveCompletedGameResults();
+    }, [playersNumberGuessData]);
 
     return (
         <div className="game">
