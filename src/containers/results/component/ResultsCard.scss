@@ -1,5 +1,4 @@
 .results-card {
-    label {
-        color: red;
-    }
+    display: flex;
+    flex-direction: column;
 }

@@ -5,11 +5,18 @@ import ResultsCard from './component/ResultsCard';
 function Results(props) {
     const { resultsData } = props;
 
-    const testdata = ['test1', 'test2'];
+    const showResultsCards = () => {
+        return resultsData.map(result => {
+            return <ResultsCard playerOneName={result['playerOne']['name']}
+                                hasPlayerOneWon={result['playerOne']['winner']}
+                                playerTwoName={result['playerTwo']['name']}
+                                hasPlayerTwoWon={result['playerTwo']['winner']}/>
+        })
+    }
 
     return (
         <div className='results'>
-            {testdata.map(data => {return <ResultsCard label={data}/>})}
+            {showResultsCards()}
         </div>
     );
 }

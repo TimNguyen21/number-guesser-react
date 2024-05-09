@@ -1,11 +1,17 @@
 import './ResultsCard.scss';
 
 function ResultsCard(props) {
-    const { label } = props;
+    const { playerOneName,
+            hasPlayerOneWon,
+            playerTwoName,
+            hasPlayerTwoWon } = props;
     
     return (
         <div className='results-card'>
-            <label>{label}</label>
+            <div>{playerOneName}</div>
+            <div>{JSON.stringify(hasPlayerOneWon)}</div>
+            <div>{playerTwoName}</div>
+            <div>{JSON.stringify(hasPlayerTwoWon)}</div>
         </div>
     );
 }
