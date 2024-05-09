@@ -105,9 +105,9 @@ function Game(props) {
 
         const saveCompletedGameResults = () => {
             if (playerOneValue === winningValue) {
-                getCompletedGameResults('playerOne', 'playerTwo');
+                getCompletedGameResults('playerOne');
             } else if (playerTwoValue === winningValue) {
-                getCompletedGameResults('playerTwo', 'playerOne');
+                getCompletedGameResults('playerTwo');
             }
         }
 
@@ -143,9 +143,9 @@ function Game(props) {
             <Button label={'Restart Game with New Guess Number'} 
                     onClick={restartNewGame}
                     isHidden={!isGameCompleted}/>
-            {JSON.stringify(playersNumberGuessData)}
+            {/* {JSON.stringify(playersNumberGuessData)}
             {JSON.stringify(playerErrorCode)}
-            {JSON.stringify(hasGuessingError)}
+            {JSON.stringify(hasGuessingError)} */}
         </div>
     );
 }

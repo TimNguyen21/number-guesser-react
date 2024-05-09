@@ -49,14 +49,14 @@ function NumberGuesser() {
     updatePlayersNumberGuess(defaultPlayersNumberGuessData);
   }
 
-  const registerCompletedGameResults = (winningPlayer, losingPlayer) => {
+  const registerCompletedGameResults = (winningPlayer) => {
     const gameSummaryData = { 
-      'winner': {'player': winningPlayer, 
-                 'playerName': (gameSettings[winningPlayer] ? gameSettings[winningPlayer] : winningPlayer)
-                }, 
-      'loser': {'player': losingPlayer, 
-                'playerName': (gameSettings[losingPlayer] ? gameSettings[losingPlayer] : losingPlayer)
-               } 
+      'playerOne': {'name': gameSettings['playerOne'] ? gameSettings['playerOne'] : 'Player #1', 
+                    'winner': (winningPlayer === 'playerOne')
+                   }, 
+      'playerTwo': {'name': gameSettings['playerTwo'] ? gameSettings['playerTwo'] : 'Player #2', 
+                    'winner': (winningPlayer === 'playerTwo')
+                   } 
     };
 
     setSavedGameResults(prevGameResults => [...prevGameResults, gameSummaryData]);
@@ -85,7 +85,6 @@ function NumberGuesser() {
         </section>
         <section className="number-guesser__results-section">
           <Results resultsData={savedGameResults}/>
-          {JSON.stringify(savedGameResults)}
         </section>
       </section>
 
