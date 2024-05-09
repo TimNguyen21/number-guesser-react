@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { generateRandomNumber } from './common_methods/Calculations';
 import Settings from './containers/settings/Settings';
 import Game from './containers/game/Game';
+import Results from './containers/results/Results';
 import './NumberGuesser.scss';
 
 function NumberGuesser() {
@@ -79,6 +80,7 @@ function NumberGuesser() {
                 getCompletedGameResults={registerCompletedGameResults}/>
         </section>
         <section className="number-guesser__results-section">
+          <Results resultsData={savedGameResults}/>
           {JSON.stringify(savedGameResults)}
         </section>
       </section>
