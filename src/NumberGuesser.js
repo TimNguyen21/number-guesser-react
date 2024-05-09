@@ -51,8 +51,12 @@ function NumberGuesser() {
 
   const registerCompletedGameResults = (winningPlayer, losingPlayer) => {
     const gameSummaryData = { 
-      'winner': (gameSettings[winningPlayer] ? gameSettings[winningPlayer] : winningPlayer), 
-      'loser': (gameSettings[losingPlayer] ? gameSettings[losingPlayer] : losingPlayer) 
+      'winner': {'player': winningPlayer, 
+                 'playerName': (gameSettings[winningPlayer] ? gameSettings[winningPlayer] : winningPlayer)
+                }, 
+      'loser': {'player': losingPlayer, 
+                'playerName': (gameSettings[losingPlayer] ? gameSettings[losingPlayer] : losingPlayer)
+               } 
     };
 
     setSavedGameResults(prevGameResults => [...prevGameResults, gameSummaryData]);
