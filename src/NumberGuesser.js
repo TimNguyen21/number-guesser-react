@@ -52,6 +52,9 @@ function NumberGuesser() {
   const registerCompletedGameResults = (winningPlayer) => {
     const gameSummaryData = { 
       'id': Date.now(),
+      'minValue': gameSettings['minValue'],
+      'maxValue': gameSettings['maxValue'],
+      'winningValue': gameSettings['winningValue'],
       'playerOne': {'name': gameSettings['playerOne'] ? gameSettings['playerOne'] : 'Player #1', 
                     'winner': (winningPlayer === 'playerOne')
                    }, 
@@ -60,7 +63,12 @@ function NumberGuesser() {
                    }
     };
 
-    setSavedGameResults(prevGameResults => [...prevGameResults, gameSummaryData]);
+    const updatedGameResultsData = [...savedGameResults, gameSummaryData];
+    const sortedGameResultsDataDecendingByID = updatedGameResultsData.sort((a, b) => { 
+      return b.id - a.id;
+    });
+
+    setSavedGameResults(sortedGameResultsDataDecendingByID);
   }
 
   const removeResultsCard = (resultsID) => {
