@@ -23,7 +23,10 @@ function Results(props) {
 
     return (
         <div className='results'>
-            {showResultsCards()}
+            <label>Game History</label>
+            <section className='results_cards'>
+                {showResultsCards()}
+            </section>
         </div>
     );
 }

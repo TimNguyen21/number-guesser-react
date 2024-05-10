@@ -38,3 +38,16 @@ input {
     height: 100%;
   }
 }
+
+@media only screen and (max-width: 1180px) {
+  .number-guesser {
+    &__main {
+      flex-direction: column;
+    }
+
+    &__game-section {
+      width: 100vw;
+      border-bottom: #333399 1px solid;
+    }
+  }
+}

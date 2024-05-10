@@ -2,9 +2,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 5px;
+    padding: 10px 5px 0;
     height: 445px;
-    overflow: scroll;
-    overflow-x: hidden;
-    overflow-y: auto;
+
+    &_cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        overflow: scroll;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    label {
+        font-size: 28px;
+        font-weight: 900;
+        color: #333399;
+        text-decoration: underline;
+        margin-bottom: 15px;
+    }
 }
