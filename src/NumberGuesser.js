@@ -86,8 +86,7 @@ function NumberGuesser() {
         clearSettings={()=>{clearGameToDefault()}}/>
       <section className="number-guesser__main">
         <section className="number-guesser__game-section" 
-                //  hidden={!gameSettings['gameIsSet']}
-                 >
+                 hidden={!gameSettings['gameIsSet']}>
           <Game gameSettingsData={gameSettings}
                 playersNumberGuessData={playersNumberGuessData}
                 updatePlayersNumberGuessData={updatePlayersNumberGuessData}
@@ -103,12 +102,6 @@ function NumberGuesser() {
                    removeResultsCard={(e) => {removeResultsCard(e.target.id)}}/>
         </section>
       </section>
-{/* 
-      <br></br>
-      <br></br>
-      <br></br>
-      {JSON.stringify(gameSettings)}
-      {JSON.stringify(isGameCompleted)} */}
     </div>
   );
 }
