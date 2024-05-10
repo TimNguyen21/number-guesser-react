@@ -116,8 +116,8 @@ function Game(props) {
 
     return (
         <div className="game">
-            <label>Guess Number Range:</label>
-            <label>{gameSettingsData['minValue']} to {gameSettingsData['maxValue']}</label>
+            <label className="game__header-label">Guess Number Range:</label>
+            <div className="game__number-range">{gameSettingsData['minValue']} to {gameSettingsData['maxValue']}</div>
             <section className="game__players-section">
                 <PlayerCard 
                     playerName={gameSettingsData['playerOne'] ? gameSettingsData['playerOne'] : 'Player #1'}
