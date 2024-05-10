@@ -24,7 +24,6 @@ function NumberGuesser() {
 
   const [gameSettings, setGameSettings] = useState(defaultGameSettings);
   const [playersNumberGuessData, updatePlayersNumberGuess] = useState(defaultPlayersNumberGuessData);
-  const [currentGameCount, setCurrentGameCount] = useState(0);
   const [isGameCompleted, confirmIsGameCompleted] = useState(false);
   const [savedGameResults, setSavedGameResults] = useState([]);
 
@@ -94,7 +93,6 @@ function NumberGuesser() {
                 restartNewGame={()=>{restartNewGame()}}
                 confirmIsGameCompleted={confirmIsGameCompleted}
                 isGameCompleted={isGameCompleted}
-                currentGameCount={setCurrentGameCount}
                 getCompletedGameResults={registerCompletedGameResults}/>
         </section>
         <section className="number-guesser__results-section">

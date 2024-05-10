@@ -10,8 +10,7 @@ function Game(props) {
             resetPlayerCardsToDefault, 
             restartNewGame, 
             confirmIsGameCompleted, 
-            isGameCompleted, 
-            currentGameCount,
+            isGameCompleted,
             getCompletedGameResults } = props;
 
     const [playerErrorCode, setPlayerErrorCode] = useState({'playerOne': null, 'playerTwo': null});
@@ -112,7 +111,7 @@ function Game(props) {
         }
 
         saveCompletedGameResults();
-    }, [playersNumberGuessData]);
+    }, [playersNumberGuessData, gameSettingsData, getCompletedGameResults]);
 
     return (
         <div className="game">
