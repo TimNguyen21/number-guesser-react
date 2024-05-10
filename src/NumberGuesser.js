@@ -64,7 +64,7 @@ function NumberGuesser() {
   }
 
   const removeResultsCard = (resultsID) => {
-    const updatedGameResults = savedGameResults.filter(result => result['id'] != parseInt(resultsID));
+    const updatedGameResults = savedGameResults.filter(result => result['id'] !== parseInt(resultsID));
 
     setSavedGameResults([...updatedGameResults]);
   }

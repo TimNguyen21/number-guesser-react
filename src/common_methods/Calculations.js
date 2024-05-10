@@ -1,7 +1,12 @@
 const generateRandomNumber = (minimumValue, maximumValue) => {
     const minValue = Math.ceil(minimumValue);
     const maxValue = Math.floor(maximumValue);
-    const randomNumber = Math.round(Math.random() * (maxValue - minValue + 1) + minValue);
+
+    let randomNumber;
+    
+    do {
+        randomNumber = Math.round(Math.random() * (maxValue - minValue) + minValue);
+    } while (randomNumber < minValue || randomNumber > maxValue);
 
     return randomNumber;
 }
