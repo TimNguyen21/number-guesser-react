@@ -7,6 +7,10 @@ function Results(props) {
             removeResultsCard } = props;
 
     const showResultsCards = () => {
+        if (resultsData.length === 0) {
+            return 'Currently no game history';
+        }
+
         return resultsData.map(result => {
             return <ResultsCard resultsID={result['id']}
                                 key={result['id']}
