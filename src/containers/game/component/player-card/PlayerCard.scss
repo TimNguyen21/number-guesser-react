@@ -8,6 +8,7 @@
     box-shadow: 1px 1px 0 #333399;
     border-radius: 4px;
     padding: 20px;
+    width: 200px;
 
     &__name {
         font-size: 22px;
@@ -19,6 +20,27 @@
         &-number {
             font-size: 48px;
             color: #3399FF;
+        }
+
+        &-summary {
+            text-align: center;
+
+            &-color {
+                &--won {
+                    font-weight: 900;
+                    color: green;
+                }
+
+                &--incorrect-guess {
+                    color: #3399FF;
+                }
+            }
+        }
+
+        &-error-message {
+            color: red;
+            font-size: 13px;
+            text-align: center;
         }
 
         &-input {
