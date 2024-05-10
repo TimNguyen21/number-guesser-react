@@ -2,6 +2,9 @@ import './ResultsCard.scss';
 
 function ResultsCard(props) {
     const { resultsID,
+            minValue,
+            maxValue,
+            winningValue,
             playerOneName,
             hasPlayerOneWon,
             playerTwoName,
@@ -30,8 +33,8 @@ function ResultsCard(props) {
                 </div>
             </section>
             <section className='results-card__game-info'>
-                <div className='results-card__game-info-number-range'>Number Range: 0 - 10</div>
-                <div className='results-card__game-info-winning-number'>Winning Number: 0</div>
+                <div className='results-card__game-info-number-range'>Number Range: {minValue} - {maxValue}</div>
+                <div className='results-card__game-info-winning-number'>Winning Number: {winningValue}</div>
             </section>
         </div>
     );

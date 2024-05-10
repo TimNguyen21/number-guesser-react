@@ -10,6 +10,9 @@ function Results(props) {
         return resultsData.map(result => {
             return <ResultsCard resultsID={result['id']}
                                 key={result['id']}
+                                minValue={result['minValue']}
+                                maxValue={result['maxValue']}
+                                winningValue={result['winningValue']}
                                 playerOneName={result['playerOne']['name']}
                                 hasPlayerOneWon={result['playerOne']['winner']}
                                 playerTwoName={result['playerTwo']['name']}
