@@ -3,14 +3,18 @@ import './component/ResultsCard'
 import ResultsCard from './component/ResultsCard';
 
 function Results(props) {
-    const { resultsData } = props;
+    const { resultsData,
+            removeResultsCard } = props;
 
     const showResultsCards = () => {
         return resultsData.map(result => {
-            return <ResultsCard playerOneName={result['playerOne']['name']}
+            return <ResultsCard resultsID={result['id']}
+                                key={result['id']}
+                                playerOneName={result['playerOne']['name']}
                                 hasPlayerOneWon={result['playerOne']['winner']}
                                 playerTwoName={result['playerTwo']['name']}
-                                hasPlayerTwoWon={result['playerTwo']['winner']}/>
+                                hasPlayerTwoWon={result['playerTwo']['winner']}
+                                removeResultsCard={removeResultsCard}/>
         })
     }
 
