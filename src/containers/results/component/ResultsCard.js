@@ -8,14 +8,31 @@ function ResultsCard(props) {
             hasPlayerTwoWon,
             removeResultsCard } = props;
     
+    const confirmWinnerLabel = (playerHasWon) => {
+       const resultsLabelClass = playerHasWon ? 'results-card__players-summary-results-winner-label' : 'results-card__players-summary-results-loser-label';
+       const resultsText = playerHasWon ? 'Winner' : 'Loser';
+
+       return (<div className={resultsLabelClass}>{resultsText}</div>);
+    }
+
     return (
         <div className='results-card'>
-            <div id={resultsID} onClick={removeResultsCard}>x</div>
-            <div>{resultsID}</div>
-            <div>{playerOneName}</div>
-            <div>{JSON.stringify(hasPlayerOneWon)}</div>
-            <div>{playerTwoName}</div>
-            <div>{JSON.stringify(hasPlayerTwoWon)}</div>
+            <div className='results-card__remove-icon' id={resultsID} onClick={removeResultsCard}>x</div>
+            <section className='results-card__players-summary'>
+                <div className='results-card__players-summary-results'>
+                    <label>{playerOneName}</label>
+                    {confirmWinnerLabel(hasPlayerOneWon)}
+                </div>
+                <label>vs.</label>
+                <div className='results-card__players-summary-results'>
+                    <label>{playerTwoName}</label>
+                    {confirmWinnerLabel(hasPlayerTwoWon)}
+                </div>
+            </section>
+            <section className='results-card__game-info'>
+                <div className='results-card__game-info-number-range'>Number Range: 0 - 10</div>
+                <div className='results-card__game-info-winning-number'>Winning Number: 0</div>
+            </section>
         </div>
     );
 }

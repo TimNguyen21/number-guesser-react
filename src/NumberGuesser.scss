@@ -32,7 +32,8 @@ input {
     width: 100%;
   }
 
-  &__results-section {
-    border-left: 1px solid #333399;
+  &__game-section {
+    border-right: 1px solid #333399;
+    width: 1800px;
   }
 }
