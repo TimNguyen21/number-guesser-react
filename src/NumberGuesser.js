@@ -51,15 +51,22 @@ function NumberGuesser() {
 
   const registerCompletedGameResults = (winningPlayer) => {
     const gameSummaryData = { 
+      'id': Date.now(),
       'playerOne': {'name': gameSettings['playerOne'] ? gameSettings['playerOne'] : 'Player #1', 
                     'winner': (winningPlayer === 'playerOne')
                    }, 
       'playerTwo': {'name': gameSettings['playerTwo'] ? gameSettings['playerTwo'] : 'Player #2', 
                     'winner': (winningPlayer === 'playerTwo')
-                   } 
+                   }
     };
 
     setSavedGameResults(prevGameResults => [...prevGameResults, gameSummaryData]);
+  }
+
+  const removeResultsCard = (resultsID) => {
+    const updatedGameResults = savedGameResults.filter(result => result['id'] != parseInt(resultsID));
+
+    setSavedGameResults([...updatedGameResults]);
   }
 
   return (
@@ -84,7 +91,8 @@ function NumberGuesser() {
                 getCompletedGameResults={registerCompletedGameResults}/>
         </section>
         <section className="number-guesser__results-section">
-          <Results resultsData={savedGameResults}/>
+          <Results resultsData={savedGameResults}
+                   removeResultsCard={(e) => {removeResultsCard(e.target.id)}}/>
         </section>
       </section>
 
