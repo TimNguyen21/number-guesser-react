@@ -103,12 +103,12 @@ function NumberGuesser() {
                    removeResultsCard={(e) => {removeResultsCard(e.target.id)}}/>
         </section>
       </section>
-
+{/* 
       <br></br>
       <br></br>
       <br></br>
       {JSON.stringify(gameSettings)}
-      {JSON.stringify(isGameCompleted)}
+      {JSON.stringify(isGameCompleted)} */}
     </div>
   );
 }

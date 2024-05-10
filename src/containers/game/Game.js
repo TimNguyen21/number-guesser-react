@@ -138,14 +138,12 @@ function Game(props) {
             </section>
             <Button label={'Guess'} 
                     onClick={savePlayersRecentNumberGuess}
-                    disableButton={isGameCompleted}/>
+                    disableButton={isGameCompleted}
+                    isHidden={isGameCompleted}/>
             <br></br>
             <Button label={'Restart Game with New Guess Number'} 
                     onClick={restartNewGame}
                     isHidden={!isGameCompleted}/>
-            {/* {JSON.stringify(playersNumberGuessData)}
-            {JSON.stringify(playerErrorCode)}
-            {JSON.stringify(hasGuessingError)} */}
         </div>
     );
 }

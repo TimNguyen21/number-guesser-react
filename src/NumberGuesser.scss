@@ -6,9 +6,7 @@ input {
   font-family: Consolas, monaco, monospace;
   font-size: 18px;
   border: 1px solid #333399;
-  height: 95vh;
-  // temporary view
-  margin: 15px;
+  height: fit-content;
 
   &__header {
     display: flex;
@@ -25,15 +23,18 @@ input {
   &__main {
     display: flex;
     justify-content: space-between;
+    height: 100%;
   }
 
   &__game-section,
   &__results-section {
     width: 100%;
+    height: fit-content;
   }
 
   &__game-section {
     border-right: 1px solid #333399;
     width: 1800px;
+    height: 100%;
   }
 }
