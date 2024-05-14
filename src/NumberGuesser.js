@@ -19,7 +19,8 @@ function NumberGuesser() {
     'playerOneCurrentNumber': '',
     'playerOnePreviousNumber': '',
     'playerTwoCurrentNumber': '',
-    'playerTwoPreviousNumber':''
+    'playerTwoPreviousNumber':'',
+    'guessCount': 0
   };
 
   const [gameSettings, setGameSettings] = useState(defaultGameSettings);

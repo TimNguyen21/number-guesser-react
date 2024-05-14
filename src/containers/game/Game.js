@@ -22,6 +22,7 @@ function Game(props) {
         if (!hasGuessingError) {
             updatePlayersNumberGuessData('playerOnePreviousNumber', playersNumberGuessData['playerOneCurrentNumber']);
             updatePlayersNumberGuessData('playerTwoPreviousNumber', playersNumberGuessData['playerTwoCurrentNumber']);
+            updatePlayersNumberGuessData('guessCount', playersNumberGuessData['guessCount'] + 1);
         }
     }
 
@@ -137,14 +138,16 @@ function Game(props) {
                     errorCode={playerErrorCode['playerTwo']}
                     gameIsComplete={isGameCompleted}/>
             </section>
+            <div><b>Guess Count:</b> {playersNumberGuessData['guessCount']}</div>
+            <br></br>
             <Button label={'Guess'} 
                     onClick={savePlayersRecentNumberGuess}
                     disableButton={isGameCompleted}
                     isHidden={isGameCompleted}/>
-            <br></br>
             <Button label={'Restart Game with New Guess Number'} 
                     onClick={restartNewGame}
                     isHidden={!isGameCompleted}/>
+            <br></br>
         </div>
     );
 }
