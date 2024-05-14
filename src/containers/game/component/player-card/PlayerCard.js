@@ -23,16 +23,15 @@ function PlayerCard(props) {
     }
 
     const summaryGuessColorClassName = (playerNumberGuessResultCode) => {
-        const guessSummaryClassName = 'player-card__guess-summary';
+        const guessSummaryClassName = 'player-card';
 
         switch (playerNumberGuessResultCode) {
             case 1:
-                return `${guessSummaryClassName} player-card__guess-summary-color--won`;
+                return `${guessSummaryClassName} player-card__winning-class`;
             case 2:
             case 3:
-                return `${guessSummaryClassName} player-card__guess-summary-color--incorrect-guess`;
             default:
-                return '';
+                return `${guessSummaryClassName}`;
         }
     }
 
@@ -50,7 +49,7 @@ function PlayerCard(props) {
     }
 
     return (
-        <div className='player-card'>
+        <div className={summaryGuessColorClassName(playerNumberGuessResultCode)}>
             <label className="player-card__name">
                 {playerName}
             </label>
@@ -65,7 +64,7 @@ function PlayerCard(props) {
                        value={setValue}
                        disabled={gameIsComplete}/>
             </section>
-            <div className={summaryGuessColorClassName(playerNumberGuessResultCode)}>
+            <div className='player-card__guess-summary'>
                 {playerGuessSummary(playerNumberGuessResultCode)}
             </div>
             <div className='player-card__guess-error-message'>
