@@ -55,6 +55,7 @@ function NumberGuesser() {
       'minValue': gameSettings['minValue'],
       'maxValue': gameSettings['maxValue'],
       'winningValue': gameSettings['winningValue'],
+      'guessCount': playersNumberGuessData['guessCount'],
       'playerOne': {'name': gameSettings['playerOne'] ? gameSettings['playerOne'] : 'Player #1', 
                     'winner': (winningPlayer === 'playerOne')
                    }, 

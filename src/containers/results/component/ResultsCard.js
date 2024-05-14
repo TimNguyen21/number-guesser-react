@@ -9,6 +9,7 @@ function ResultsCard(props) {
             hasPlayerOneWon,
             playerTwoName,
             hasPlayerTwoWon,
+            guessCount,
             removeResultsCard } = props;
     
     const confirmWinnerLabel = (playerHasWon) => {
@@ -35,6 +36,7 @@ function ResultsCard(props) {
             <section className='results-card__game-info'>
                 <div className='results-card__game-info-number-range'>Number Range: {minValue} - {maxValue}</div>
                 <div className='results-card__game-info-winning-number'>Winning Number: {winningValue}</div>
+                <div className='results-card__game-info-guess-count'>Guess Count: {guessCount}</div>
             </section>
         </div>
     );

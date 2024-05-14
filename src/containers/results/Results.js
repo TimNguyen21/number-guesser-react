@@ -21,6 +21,7 @@ function Results(props) {
                                 hasPlayerOneWon={result['playerOne']['winner']}
                                 playerTwoName={result['playerTwo']['name']}
                                 hasPlayerTwoWon={result['playerTwo']['winner']}
+                                guessCount={result['guessCount']}
                                 removeResultsCard={removeResultsCard}/>
         })
     }
