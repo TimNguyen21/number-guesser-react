@@ -111,7 +111,7 @@ function Game(props) {
         }
 
         saveCompletedGameResults();
-    }, [playersNumberGuessData, gameSettingsData, getCompletedGameResults]);
+    }, [playersNumberGuessData, gameSettingsData]);
 
     return (
         <div className="game">
@@ -125,7 +125,8 @@ function Game(props) {
                     playerNumberGuessResultCode={playersNumberGuessData['playerOnePreviousNumber'] ? 
                         getPlayerNumberGuessResultCode(playersNumberGuessData['playerOnePreviousNumber']) : ''}
                     setValue={!resetPlayerCardsToDefault ? '' : playersNumberGuessData['playerOneCurrentNumber']}
-                    errorCode={playerErrorCode['playerOne']}/>
+                    errorCode={playerErrorCode['playerOne']}
+                    gameIsComplete={isGameCompleted}/>
                 <PlayerCard
                     playerName={gameSettingsData['playerTwo'] ? gameSettingsData['playerTwo'] : 'Player #2'}
                     playerPreviousGuess={playersNumberGuessData['playerTwoPreviousNumber']}
@@ -133,7 +134,8 @@ function Game(props) {
                     playerNumberGuessResultCode={playersNumberGuessData['playerTwoPreviousNumber'] ? 
                         getPlayerNumberGuessResultCode(playersNumberGuessData['playerTwoPreviousNumber']) : ''}
                     setValue={!resetPlayerCardsToDefault ? '' : playersNumberGuessData['playerTwoCurrentNumber']}
-                    errorCode={playerErrorCode['playerTwo']}/>
+                    errorCode={playerErrorCode['playerTwo']}
+                    gameIsComplete={isGameCompleted}/>
             </section>
             <Button label={'Guess'} 
                     onClick={savePlayersRecentNumberGuess}

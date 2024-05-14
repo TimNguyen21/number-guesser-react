@@ -6,7 +6,8 @@ function PlayerCard(props) {
             playerPreviousGuess, 
             playerNumberGuessResultCode, 
             setValue = '', 
-            errorCode = null } = props;
+            errorCode = null,
+            gameIsComplete = false} = props;
 
     const playerGuessSummary = (playerNumberGuessResultCode) => {
         switch (playerNumberGuessResultCode) {
@@ -61,7 +62,8 @@ function PlayerCard(props) {
                 <input className="player-card__guess-input" 
                        type='number' 
                        onChange={getPlayerGuess}
-                       value={setValue}/>
+                       value={setValue}
+                       disabled={gameIsComplete}/>
             </section>
             <div className={summaryGuessColorClassName(playerNumberGuessResultCode)}>
                 {playerGuessSummary(playerNumberGuessResultCode)}
