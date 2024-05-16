@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Number Guesser
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Website: [Number Guesser (React.js)](https://tim-nguyen-number-guesser.netlify.app/)
 
-## Available Scripts
+Project Creator: Tim Nguyen
 
-In the project directory, you can run:
+Tech Stacks: React.js, Javascript, HTML, SCSS/CSS, Netlify
 
-### `npm start`
+## Project Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Number Guesser is a game designed for two players who attempt to guess a randomly generated number within a predefined range set by the players themselves. The objective of the game is for the players to continue guessing numbers until one successfully guesses the correct winning number. Upon submitting a guess, players receive feedback indicating whether their guess is too high, too low, or matches the winning number. By interpreting this feedback, players can refine their guesses and improve their chances of correctly guessing the winning number as they approach it.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project History
 
-### `npm test`
+The concept of this game was initially developed using pure vanilla JavaScript, HTML, and CSS during my time at the Turing School of Software and Design, in collaboration with a coding partner.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Link to the previous project repository: [Number Guesser (Vanilla Javascript)](https://github.com/TimNguyen21/Number-Guesser)
 
-### `npm run build`
+The objective of this new repository is to showcase the process of migrating the game's development to a more modern coding structure, utilizing React.js. By undertaking this migration, I aim to demonstrate how the same application can be created using different technologies and coding practices.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Homepage
+<img width="723" alt="Screenshot 2024-05-16 at 3 52 41 AM" src="https://github.com/TimNguyen21/number-guesser-react/assets/52939140/423fb5a8-cd7e-48fa-9910-d100abdf28da">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Completed Setup / Game Start page
+<img width="723" alt="Screenshot 2024-05-16 at 3 53 11 AM" src="https://github.com/TimNguyen21/number-guesser-react/assets/52939140/271ee740-e10f-484d-a65f-1163dd62711a">
 
-### `npm run eject`
+#### Completed Game
+<img width="723" alt="Screenshot 2024-05-16 at 3 54 15 AM" src="https://github.com/TimNguyen21/number-guesser-react/assets/52939140/2a02a4ab-d91b-4ebf-8818-cd7b32f7e65c">
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Game Flow
+<img width="723" alt="Screenshot 2024-05-16 at 3 54 46 AM" src="https://github.com/TimNguyen21/number-guesser-react/assets/52939140/9acdad08-6c8d-4a22-84b1-4c93094e2b17">
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Set-up
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* clone repo
+* npm install
+* npm start
