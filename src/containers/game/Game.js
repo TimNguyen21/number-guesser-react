@@ -144,7 +144,8 @@ function Game(props) {
                     onClick={savePlayersRecentNumberGuess}
                     disableButton={isGameCompleted}
                     isHidden={isGameCompleted}/>
-            <Button label={'Restart Game with New Guess Number'} 
+            <Button label={'Restart Game with New Guess Number'}
+                    isInverseColor={true}
                     onClick={restartNewGame}
                     isHidden={!isGameCompleted}/>
             <br></br>
