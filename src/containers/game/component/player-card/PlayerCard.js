@@ -61,11 +61,12 @@ function PlayerCard(props) {
                 <input className="player-card__guess-input" 
                        type='number' 
                        onChange={getPlayerGuess}
+                       onClick={(e) => {e.target.value = ''}}
                        value={setValue}
                        disabled={gameIsComplete}/>
             </section>
             <div className='player-card__guess-summary'>
-                {playerGuessSummary(playerNumberGuessResultCode)}
+                {errorCode ? '' : playerGuessSummary(playerNumberGuessResultCode)}
             </div>
             <div className='player-card__guess-error-message'>
                 {errorCode ? errorMessage(errorCode) : ''}
